@@ -75,6 +75,8 @@ namespace SpeakingInBits
             IdentityHelper.CreateRoles(serviceProvider.ServiceProvider
                                         , IdentityHelper.Instructor
                                         , IdentityHelper.Student).Wait();
+            IdentityHelper.CreateDefaultInstructor(serviceProvider.ServiceProvider)
+                          .Wait();
         }
     }
 }
