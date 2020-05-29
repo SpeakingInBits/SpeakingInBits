@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SpeakingInBits.Models;
 
 namespace SpeakingInBits.Data
 {
@@ -12,5 +13,7 @@ namespace SpeakingInBits.Data
             : base(options)
         {
         }
+
+        public DbSet<VideoLesson> VideoLessons { get; set; }
     }
 }
