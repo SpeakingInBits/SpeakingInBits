@@ -15,5 +15,9 @@ namespace SpeakingInBits.Data
         }
 
         public DbSet<VideoLesson> VideoLessons { get; set; }
+
+        public DbSet<Lesson> Lessons { get; set; }
+
+        public DbSet<Course> Courses { get; set; }
     }
 }
