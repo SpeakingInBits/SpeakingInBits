@@ -7,6 +7,10 @@ namespace SpeakingInBits.Models
 {
     public static class IdentityHelper
     {
+        public const string InstructorRole = "Instructor";
+        public const string StudentRole = "Student";
+        public const string AdminRole = "Admin";
+
         public static async Task SeedRolesAndUser(IServiceProvider serviceProvider)
         {
             using var scope = serviceProvider.CreateScope();
@@ -19,7 +23,7 @@ namespace SpeakingInBits.Models
 
         private static async Task SeedRoles(RoleManager<IdentityRole> roleManager)
         {
-            var roles = new[] { "Instructor", "Student", "Admin" };
+            var roles = new[] { InstructorRole, StudentRole, AdminRole };
             foreach (var role in roles)
             {
                 if (!await roleManager.RoleExistsAsync(role))
@@ -39,7 +43,10 @@ namespace SpeakingInBits.Models
                     UserName = "admin@localhost",
                     Email = "admin@localhost"
                 };
-                await userManager.CreateAsync(adminUser);
+                await userManager.CreateAsync(adminUser, "P@ssw0rd1");
+
+                // Add admin role to user
+                await userManager.AddToRoleAsync(adminUser, AdminRole);
             }
         }
     }
