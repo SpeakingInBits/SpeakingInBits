@@ -15,7 +15,9 @@ namespace SpeakingInBits.Data
 
         public DbSet<Lesson> Lessons { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<VideoLesson> VideoLessons { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
